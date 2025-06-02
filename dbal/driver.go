@@ -54,5 +54,5 @@ func GetDriverFor(dsn string) (Driver, error) {
 // IsSQLite returns true if the connection is a SQLite string.
 func IsSQLite(dsn string) bool {
 	scheme := strings.Split(dsn, "://")[0]
-	return scheme == "sqlite" || scheme == "sqlite3"
+	return scheme == "sqlite" || scheme == "sqlite3" || scheme == "libsql"
 }

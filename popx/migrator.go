@@ -590,7 +590,7 @@ func (m *Migrator) exec(ctx context.Context, fn func() error) error {
 		return errors.Wrap(err, "migrator: problem creating schema migrations")
 	}
 
-	if m.Connection.Dialect.Name() == "sqlite3" {
+	if m.Connection.Dialect.Name() == "sqlite3" || m.Connection.Dialect.Name() == "libsql" {
 		if err := m.Connection.RawQuery("PRAGMA foreign_keys=OFF").Exec(); err != nil {
 			return err
 		}
@@ -607,7 +607,7 @@ func (m *Migrator) exec(ctx context.Context, fn func() error) error {
 		return err
 	}
 
-	if m.Connection.Dialect.Name() == "sqlite3" {
+	if m.Connection.Dialect.Name() == "sqlite3" || m.Connection.Dialect.Name() == "libsql" {
 		if err := m.Connection.RawQuery("PRAGMA foreign_keys=ON").Exec(); err != nil {
 			return err
 		}

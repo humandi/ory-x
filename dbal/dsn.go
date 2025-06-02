@@ -22,7 +22,7 @@ const (
 	SQLiteSharedInMemory = "sqlite://file::memory:?_fk=true&cache=shared"
 )
 
-var dsnRegex = regexp.MustCompile(`^(sqlite://file:(?:.+)\?((\w+=\w+)(&\w+=\w+)*)?(&?mode=memory)(&\w+=\w+)*)$|(?:sqlite://(file:)?:memory:(?:\?\w+=\w+)?(?:&\w+=\w+)*)|^(?:(?::memory:)|(?:memory))$`)
+var dsnRegex = regexp.MustCompile(`^(sqlite://file:(?:.+)\?((\w+=\w+)(&\w+=\w+)*)?(&?mode=memory)(&\w+=\w+)*)$|(?:sqlite://(file:)?:memory:(?:\?\w+=\w+)?(?:&\w+=\w+)*)|^(?:(?::memory:)|(?:memory))$|^(?:libsql://file:(?:.+)\?((\w+=\w+)(&\w+=\w+)*)?(&?mode=memory)(&\w+=\w+)*)|(?:libsql://[^?]+(?:\?\w+=\w+)*(?:&\w+=\w+)*)$`)
 
 // IsMemorySQLite returns true if a given DSN string is pointing to a SQLite database.
 //
