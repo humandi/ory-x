@@ -359,7 +359,7 @@ func (m *Migrator) isolatedTransaction(ctx context.Context, direction string, fn
 	}
 
 	conn, dberr := m.Connection.NewTransactionContextOptions(ctx, &sql.TxOptions{
-		Isolation: sql.LevelSerializable,
+		Isolation: sql.LevelDefault,
 		ReadOnly:  false,
 	})
 	if dberr != nil {
