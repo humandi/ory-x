@@ -6,12 +6,6 @@
 
 package sqlcon
 
-import (
-	"strings"
-
-	"github.com/pkg/errors"
-)
-
 // handleSqlite handles the error iff (if and only if) it is an sqlite error
 func handleSqlite(err error) error {
 	
